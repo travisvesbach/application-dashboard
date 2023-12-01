@@ -16,7 +16,7 @@
       <nav class="flex items-center justify-end p-6 lg:px-8" aria-label="Global">
         <% if user_signed_in? %>
           <button>Add Item</button>
-          <button>Sign out</button>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
         <% end %>
       </nav>
     </header>

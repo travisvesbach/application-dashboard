@@ -1,0 +1,17 @@
+<h1>home</h1>
+
+<div class="grid grid-cols-2 md:grid-cols-3 w-full">
+  <% @user_applications.each do |user_application| %>
+    <div class="bg-gray-100 rounded-lg p-2 m-2 text-center">
+        <%= user_application.application.name %>
+        <br>
+        <%= user_application.application.description %>
+        <br>
+        <%= user_application.application.color %>
+        <br>
+        <%= user_application.application.default_status %>
+        <br>
+        <%= user_application.application.link %>
+    </div>
+  <% end %>
+</div>
