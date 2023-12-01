@@ -11,8 +11,29 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="bg-gray-300">
+    <header class="bg-gray-200">
+      <nav class="flex items-center justify-end p-6 lg:px-8" aria-label="Global">
+        <% if user_signed_in? %>
+          <button>Add Item</button>
+          <button>Sign out</button>
+        <% end %>
+      </nav>
+    </header>
+    <div class="text-center">
+      <% if notice %>
+        <div class="notice bg-green-100 p-2">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert bg-red-100 p-2">
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
+    <main class="container mx-auto mt-28 px-5 flex flex-col items-center">
+
       <%= yield %>
     </main>
   </body>

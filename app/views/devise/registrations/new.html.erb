@@ -1,0 +1,33 @@
+<div class="bg-gray-100 rounded-lg p-4">
+  <h2 class="text-xl font-semibold text-center">Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field mt-2">
+      <%= f.label :login %><br />
+      <%= f.text_field :login, autofocus: true, autocomplete: "login", class: 'rounded-lg w-full' %>
+    </div>
+
+    <div class="field mt-2">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: 'rounded-lg w-full'  %>
+    </div>
+
+    <div class="field mt-2">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'rounded-lg w-full'  %>
+    </div>
+
+    <div class="actions mt-4 text-center">
+      <%= f.submit "Sign up", class: "bg-blue-300 hover:bg-blue-400 transition duration-150 rounded-lg py-2 px-4 cursor-pointer" %>
+    </div>
+  <% end %>
+
+  <div class="text-xs mt-4 text-center">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
