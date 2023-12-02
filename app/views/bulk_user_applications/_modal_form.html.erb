@@ -1,13 +1,13 @@
 <dialog class="p-0 absolute bg-gray-100 rounded-lg open:backdrop:bg-gray-400 open:backdrop:opacity-75" data-modal-target="modal">
   <div class="p-6 sm:min-w-[20rem] text-center">
-    <button class="absolute top-2 right-2 pointer hover:bg-gray-200 rounded-lg" data-action="modal#close">
+    <button class="p-1 absolute top-2 right-2 pointer hover:bg-gray-300 rounded-lg transition duration-150" data-action="modal#close">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
-    <h2 class="font-semibold">Available Applications</h2>
+    <h2 class="font-semibold">Add Applications</h2>
     <% if @available_applications.count > 0 %>
-      <%= form_with url: bulk_user_applications_path do |f| %>
+      <%= form_with url: bulk_user_applications_path, data: { modal_target: 'form' } do |f| %>
         <div class="mt-4">
           <%= f.collection_check_boxes(:application_ids, @available_applications, :id, :name) do |item| %>
             <div class="flex items-center justify-between mt-4">

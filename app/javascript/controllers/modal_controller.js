@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
-  static targets = ["modal"];
+  static targets = ["modal", "form"];
 
   open() {
     event.preventDefault();
@@ -18,5 +18,7 @@ export default class extends Controller {
   close() {
     event.preventDefault();
     this.modalTarget.close();
+
+    this.formTarget.reset()
   }
 }
