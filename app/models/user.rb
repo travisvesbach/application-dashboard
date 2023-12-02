@@ -15,9 +15,9 @@ class User < ApplicationRecord
   private
 
     def add_default_applications
-      @applications = Application.where(default_status: 'Yes').order(:id)
+      applications = Application.where(default_status: 'Yes').order(:id)
 
-      @applications.each_with_index do |application, index|
+      applications.each_with_index do |application, index|
         self.user_applications.create(application: application, position: index)
       end
 
