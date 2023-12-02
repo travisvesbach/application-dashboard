@@ -20,20 +20,18 @@
         <% end %>
       </nav>
     </header>
-    <div class="text-center">
-      <% if notice %>
-        <div class="notice bg-green-100 p-2">
-          <%= notice %>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="alert bg-red-100 p-2">
-          <%= alert %>
-        </div>
-      <% end %>
-    </div>
-    <main class="container mx-auto mt-28 px-5 flex flex-col items-center">
 
+    <% if flash.count > 0 %>
+      <div id="flash" data-controller="flash" class="mb-2 transition ease-in-out duration-150 text-center fixed w-full">
+        <% flash.each do |type, message| %>
+          <div class="p-2 <%= type %>">
+            <%= message %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <main class="container mx-auto mt-28 px-5 flex flex-col items-center">
       <%= yield %>
     </main>
   </body>

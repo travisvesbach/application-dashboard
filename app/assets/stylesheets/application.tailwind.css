@@ -11,3 +11,11 @@
 }
 
 */
+
+#flash .notice {
+    @apply bg-green-200;
+}
+
+#flash .alert {
+    @apply bg-red-200;
+}

@@ -1,17 +1,12 @@
-<h1>home</h1>
-
-<div class="grid grid-cols-2 md:grid-cols-3 w-full">
-  <% @user_applications.each do |user_application| %>
-    <div class="bg-gray-100 rounded-lg p-2 m-2 text-center">
-        <%= user_application.application.name %>
-        <br>
-        <%= user_application.application.description %>
-        <br>
-        <%= user_application.application.color %>
-        <br>
-        <%= user_application.application.default_status %>
-        <br>
-        <%= user_application.application.link %>
-    </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full">
+  <% @user_applications.each do |user_app| %>
+    <%= link_to user_app.application.link, target: "_blank", class: "bg-gray-100 rounded-lg p-2 m-2 flex flex-col items-center justify-center text-center min-h-[12rem] hover:opacity-75 transition duration-150" do %>
+      <h2 class="text-xl font-semibold">
+        <%= user_app.application.name %>
+      </h2>
+      <p class="mt-4 text-sm">
+        <%= user_app.application.description %>
+      </p>
+    <% end -%>
   <% end %>
 </div>
