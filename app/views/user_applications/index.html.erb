@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full">
   <% @user_applications.each do |user_app| %>
-    <%= link_to user_app.application.link, target: "_blank", class: "bg-gray-100 rounded-lg p-2 m-2 flex flex-col items-center justify-center text-center min-h-[12rem] hover:opacity-75 transition duration-150" do %>
-      <h2 class="text-xl font-semibold">
+    <%= link_to user_app.application.link, target: "_blank", class: "#{user_app.application.background_class} rounded-lg p-2 m-2 flex flex-col items-center justify-center text-center min-h-[12rem] transition duration-150" do %>
+      <h2 class="text-2xl font-semibold">
         <%= user_app.application.name %>
       </h2>
       <p class="mt-4 text-sm">

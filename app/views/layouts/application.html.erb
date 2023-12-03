@@ -11,21 +11,21 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-300">
-    <header class="bg-gray-200">
+  <body class="bg-gray-100">
+    <header class="bg-gray-300">
       <nav class="flex items-center justify-end h-10 px-6 lg:px-8" aria-label="Global">
         <% if user_signed_in? %>
           <div data-controller="modal">
-            <button class="flex items-center border-gray-200 border-b-2 hover:border-red-500 py-[.45rem]" data-action="modal#open">
+            <button class="flex items-center border-gray-300 border-b-2 hover:border-red-500 py-[.45rem]" data-action="modal#open">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
               </svg>
-              Add Applications
+              Add App
             </button>
             <%= render 'bulk_user_applications/modal_form' %>
           </div>
 
-          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'py-[.45rem] ml-4 border-b-2 border-gray-200 hover:border-red-500' %>
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'py-[.45rem] ml-6 border-b-2 border-gray-300 hover:border-red-500' %>
         <% else %>
           <%= button_to "Log In", new_user_session_path, method: :get, class: 'py-[.45rem] ml-4 border-b-2 border-gray-200 hover:border-red-500' %>
         <% end %>

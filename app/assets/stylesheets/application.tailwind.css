@@ -2,10 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-#flash .notice {
-    @apply bg-green-200;
-}
+@layer components {
+  #flash .notice {
+      @apply bg-green-200;
+  }
 
-#flash .alert {
-    @apply bg-red-200;
+  #flash .alert {
+      @apply bg-red-200;
+  }
+
+  /* application colors defined here, because we use dynamic classes and the tailwind ones would be missing when compiling */
+  .app-red {
+    @apply bg-red-200 hover:bg-red-300;
+  }
+  .app-blue {
+    @apply bg-blue-200 hover:bg-blue-300;
+  }
+  .app-yellow {
+    @apply bg-yellow-200 hover:bg-yellow-300;
+  }
+  .app-green {
+    @apply bg-green-200 hover:bg-green-300;
+  }
+  .app-purple {
+    @apply bg-purple-200 hover:bg-purple-300;
+  }
 }

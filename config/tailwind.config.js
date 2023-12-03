@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
@@ -12,6 +13,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'c-red': '#BAA333',
+      }
     },
   },
   plugins: [
@@ -19,5 +23,12 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
+  ],
+  // application.color classes rendered dynamically, so need to safelist them so they get compiled
+  safelist: [
+    {
+      pattern: /bg-.+-(200|300|400)/,
+      variants: ['hover']
+    },
   ]
 }
