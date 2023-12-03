@@ -9,7 +9,7 @@ class BulkUserApplicationsController < ApplicationController
       # verify application with id exists and isn't already related to the current_user
       if application = Application.find(application_id)
         if !user.user_applications.include?(application)
-          user.user_applications.create(application: application, position: user.user_applications.count)
+          user.user_applications.create(application: application)
         end
       end
     end

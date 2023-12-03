@@ -13,12 +13,11 @@ class User < ApplicationRecord
   after_create :add_default_applications
 
   private
-
     def add_default_applications
       applications = Application.where(default_status: 'Yes').order(:id)
 
-      applications.each_with_index do |application, index|
-        self.user_applications.create(application: application, position: index)
+      applications.each do |application|
+        self.user_applications.create(application: application)
       end
 
     end

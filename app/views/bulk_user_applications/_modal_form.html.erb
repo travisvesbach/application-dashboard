@@ -1,9 +1,13 @@
-<dialog class="p-0 absolute bg-gray-100 rounded-lg open:backdrop:bg-gray-400 open:backdrop:opacity-75" data-modal-target="modal">
+<dialog
+  class="p-0 absolute bg-gray-100 rounded-lg open:backdrop:bg-gray-400 open:backdrop:opacity-75"
+  data-modal-target="modal"
+>
   <div class="p-6 sm:min-w-[20rem] text-center">
-    <button class="p-1 absolute top-2 right-2 pointer hover:bg-gray-300 rounded-lg transition duration-150" data-action="modal#close">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+    <button
+      class="p-1 absolute top-2 right-2 pointer hover:bg-gray-300 rounded-lg transition duration-150"
+      data-action="modal#close"
+    >
+      <%= render 'shared/x-icon' %>
     </button>
     <h2 class="font-semibold">Add Applications</h2>
     <% if @available_applications.count > 0 %>
@@ -25,7 +29,12 @@
         No more applications available
       </p>
       <div class="mt-10">
-        <button class="bg-blue-300 hover:bg-blue-400 transition duration-150 rounded-lg py-2 px-4 cursor-pointer" data-action="modal#close">Close</button>
+        <button
+          class="bg-blue-300 hover:bg-blue-400 transition duration-150 rounded-lg py-2 px-4 cursor-pointer"
+          data-action="modal#close"
+        >
+          Close
+        </button>
       </div>
     <% end %>
   </div>

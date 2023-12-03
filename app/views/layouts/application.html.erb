@@ -17,9 +17,7 @@
         <% if user_signed_in? %>
           <div data-controller="modal">
             <button class="flex items-center border-gray-300 border-b-2 hover:border-red-500 py-[.45rem]" data-action="modal#open">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
+              <%= render 'shared/plus-icon' %>
               Add App
             </button>
             <%= render 'bulk_user_applications/modal_form' %>
@@ -27,13 +25,17 @@
 
           <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'py-[.45rem] ml-6 border-b-2 border-gray-300 hover:border-red-500' %>
         <% else %>
-          <%= button_to "Log In", new_user_session_path, method: :get, class: 'py-[.45rem] ml-4 border-b-2 border-gray-200 hover:border-red-500' %>
+          <%= button_to "Log In", new_user_session_path, method: :get, class: 'py-[.45rem] ml-6 border-b-2 border-gray-200 hover:border-red-500' %>
         <% end %>
       </nav>
     </header>
 
     <% if flash.count > 0 %>
-      <div id="flash" data-controller="flash" class="mb-2 transition ease-in-out duration-150 text-center fixed w-full">
+      <div
+        id="flash"
+        data-controller="flash"
+        class="mb-2 transition ease-in-out duration-150 text-center absolute w-full"
+      >
         <% flash.each do |type, message| %>
           <div class="p-2 <%= type %>">
             <%= message %>
@@ -42,7 +44,7 @@
       </div>
     <% end %>
 
-    <main class="container mx-auto mt-28 px-5 flex flex-col items-center">
+    <main class="container mx-auto mt-16 px-5 flex flex-col items-center">
       <%= yield %>
     </main>
   </body>

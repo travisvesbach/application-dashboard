@@ -24,7 +24,7 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
   ],
-  // application.color classes rendered dynamically, so need to safelist them so they get compiled
+  // application.color classes rendered dynamically, so we need to safelist them so they get compiled
   safelist: [
     {
       pattern: /bg-.+-(200|300|400)/,
