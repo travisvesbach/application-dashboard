@@ -1,4 +1,4 @@
-<div class="bg-gray-100 rounded-lg p-4">
+<div class="bg-gray-300 rounded-lg p-4">
   <h2 class="text-xl font-semibold text-center">Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -14,7 +14,7 @@
 
     <% if devise_mapping.rememberable? %>
       <div class="field mt-2">
-        <%= f.check_box :remember_me %>
+        <%= f.check_box :remember_me, class: "w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 cursor-pointer" %>
         <%= f.label :remember_me %>
       </div>
     <% end %>

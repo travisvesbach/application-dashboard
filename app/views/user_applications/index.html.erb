@@ -1,12 +1,21 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full">
   <% @user_applications.each do |user_app| %>
-    <%= link_to user_app.application.link, target: "_blank", class: "#{user_app.application.background_class} rounded-lg p-2 m-2 flex flex-col items-center justify-center text-center min-h-[12rem] transition duration-150" do %>
-      <h2 class="text-2xl font-semibold">
-        <%= user_app.application.name %>
-      </h2>
-      <p class="mt-4 text-sm">
-        <%= user_app.application.description %>
-      </p>
-    <% end %>
+    <div class="<%= user_app.application.background_class %> min-h-[12rem] rounded-lg m-2 relative transition duration-150">
+
+      <%= link_to user_application_path(user_app), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this application?" }, class: "p-1 absolute top-2 right-2 pointer hover:bg-gray-300 rounded-lg transition duration-150", title: "Remove application" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+      <% end %>
+
+      <%= link_to user_app.application.link, target: "_blank", class: "p-2 h-full w-full flex flex-col items-center justify-center text-center" do %>
+        <h2 class="text-2xl font-semibold">
+          <%= user_app.application.name %>
+        </h2>
+        <p class="mt-4 text-sm">
+          <%= user_app.application.description %>
+        </p>
+      <% end %>
+    </div>
   <% end %>
 </div>
