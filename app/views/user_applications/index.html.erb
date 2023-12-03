@@ -1,6 +1,19 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full">
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full"
+  data-controller="sortable"
+  data-sortable-animation-value="150"
+  data-sortable-handle-value=".handle"
+  data-sortable-resource-name-value="user_application"
+>
   <% @user_applications.each do |user_app| %>
-    <div class="<%= user_app.application.background_class %> min-h-[12rem] rounded-lg m-2 relative transition duration-150">
+    <div class="min-h-[12rem] rounded-lg m-2 relative"  data-sortable-update-url="<%= user_application_path(user_app) %>">
+
+      <div class="handle absolute top-2 left-2 pointer cursor-move">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+        </svg>
+      </div>
+
 
       <%= link_to user_application_path(user_app), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this application?" }, class: "p-1 absolute top-2 right-2 pointer hover:bg-gray-300 rounded-lg transition duration-150", title: "Remove application" do %>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -8,7 +21,7 @@
           </svg>
       <% end %>
 
-      <%= link_to user_app.application.link, target: "_blank", class: "p-2 h-full w-full flex flex-col items-center justify-center text-center" do %>
+      <%= link_to user_app.application.link, target: "_blank", class: "#{user_app.application.background_class} p-2 h-full w-full flex flex-col items-center justify-center text-center transition duration-150" do %>
         <h2 class="text-2xl font-semibold">
           <%= user_app.application.name %>
         </h2>
