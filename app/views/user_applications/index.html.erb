@@ -7,7 +7,7 @@
 >
   <% @user_applications.each do |user_app| %>
     <div
-      class="min-h-[12rem] m-2"
+      class="min-h-[12rem] m-2 bg-gray-300 hover:bg-gray-400 rounded-lg"
       data-sortable-update-url="<%= user_application_path(user_app) %>"
     >
       <div class="<%= user_app.application.background_class %> h-full w-full rounded-lg relative transition-all duration-150">

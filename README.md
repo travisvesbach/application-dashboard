@@ -11,13 +11,12 @@ These steps assume you already have Ruby and Ruby on Rails installed.
 1. Edit the new `.env` file and set `SEED_PASSWORD`, which will be used by all of the users created by the seeder
 1. Install gems: `bundle install`
 1. Create the database: `rails db:create`
-1. Run the datbase migrations: `rails db:migrate`
+1. Run the database migrations: `rails db:migrate`
 1. Run the database seeder: `rails db:seed`
 1. Start the server: two options
     1. If you're going to be doing development work:
         1. Install node dependencies: `yarn install`
         1. Start the server: `./bin/dev`
-            1. If there is a permission denied error, you might need to make the files in the `./bin` directory executable: `chmod +x ./bin/*`
     1. If you won't be doing development work and don't need the build scripts, precompile the assets before starting the server:
         1. Precompile assets: `rails assets:precompile`
         1. Start the server: `rails s`

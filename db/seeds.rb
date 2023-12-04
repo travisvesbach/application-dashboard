@@ -44,18 +44,20 @@ Application.create(
   link: 'http://twitter.com/'
 )
 
+user_password = !ENV['SEED_PASSWORD'].nil? ? ENV['SEED_PASSWORD'] : 'password'
+
 User.create(
   login: 'user1',
-  password: ENV['SEED_PASSWORD'],
-  password_confirmation: ENV['SEED_PASSWORD'],
+  password: user_password,
+  password_confirmation: user_password,
 )
 User.create(
   login: 'user2',
-  password: ENV['SEED_PASSWORD'],
-  password_confirmation: ENV['SEED_PASSWORD'],
+  password: user_password,
+  password_confirmation: user_password,
 )
 User.create(
   login: 'user3',
-  password: ENV['SEED_PASSWORD'],
-  password_confirmation: ENV['SEED_PASSWORD'],
+  password: user_password,
+  password_confirmation: user_password,
 )
