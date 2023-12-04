@@ -16,7 +16,7 @@ class UserApplicationsController < ApplicationController
   def destroy
     user_application = UserApplication.find(params[:id])
     user_application.destroy
-    redirect_to user_applications_path
+    redirect_to root_path
   end
 
   private
